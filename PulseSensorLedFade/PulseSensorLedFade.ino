@@ -38,7 +38,7 @@ uint8_t b;
 int inhaleInterval = 5000;
 int waitBeforeExhale = 5000;
 long fadeDelay = 8; // number of mS for each step of brightness (256 steps will take 8*255 = 2,048 mS)
-unsigned long previousLEDTime = 0;
+unsigned long previousInhaleTime = 0;
 unsigned long previousLEDFadeTime = 0;
 boolean timeToFade = false; // flag to make sure fade doesn't start over every time code loops and long timer has elapsed
 

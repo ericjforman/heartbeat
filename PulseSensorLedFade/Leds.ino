@@ -8,11 +8,6 @@
 
 // and thus you need two previousTimes to keep track of, one for long timer one for short timer
 // you need to use a short timer too otherwise all your code will be delayed while it does a complete fade in or out
-// let's call them previousLEDTime for long timer and previousLEDFadeTime for short timer.
-// (you can come up with better names)
-
-// NOTE: get rid of currentLEDTime in main loop, do it all here
-// also, you can use millis() instead of currentLEDTime, right?
 
 
 //uint8_t b;    // fade brightness variable must be declared globally, so function remembers it in between being called
@@ -23,7 +18,7 @@
 
 void fadeIn(uint8_t red, uint8_t green, uint8_t blue, uint8_t fadeDelay) {
 Serial.println(millis() - previousLEDTime);
-  if (millis() - previousLEDTime >= inhaleInterval) { // check if it's time to do a complete fade (long timer)
+  if (millis() - previousInhaleTime >= inhaleInterval) { // check if it's time to do a complete fade (long timer)
     // make sure brightness is initialized only once, when it's first time to fade:
     if (!timeToFade) {
       timeToFade = true;
